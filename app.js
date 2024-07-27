@@ -6,10 +6,11 @@ const app = express()
 app.use(cors({
     origin: '*'
 }))
-// function to start the express server
-export const startServer = () => {
-    app.listen(process.env.PORT, () => {
-        console.log("App started on port ", process.env.PORT);
-    })
-}
+// to do crud operation on cookies
+app.use(cookieParser())
+// to recieve form data , set a file size limit
+app.use(express.json({ limit: '10kb' }))
+app.use(express.urlencoded({limit:'10kb'}))
+
+
 export default app;
